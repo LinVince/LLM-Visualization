@@ -160,6 +160,7 @@
   }
 
   .canvas-container {
+   
     width: 100%;
     height: 100%;
   }
@@ -231,7 +232,7 @@
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     margin-bottom: 8px;
-    margin-top:10px;
+    
   
   }
 
@@ -417,3 +418,66 @@
     color: #667eea;
     font-weight: 600;
   }
+@media (max-width: 768px) {
+  /* let the page scroll normally */
+  html, body {
+    height: auto;
+    overflow: auto;
+  }
+
+  /* stop forcing a full-screen fixed scene */
+  .container {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  /* make the app layout stack vertically */
+  .app {
+    height: auto;
+    flex-direction: column;
+  }
+
+  /* left/right become normal blocks */
+  .left,
+  .right {
+    width: 100%;
+    flex: none;
+    border-right: none;
+  }
+
+  /* the chat area should have a reasonable height on mobile */
+  .messages {
+    max-height: 55vh;
+    overflow: auto;
+  }
+
+  /* canvas becomes a normal block section */
+  .canvas-container {
+    width: 100%;
+    height: 100vh;            /* adjust as you like */
+    position: relative;
+  }
+
+  /* panels become normal blocks in the flow */
+  .controls,
+  .response-panel,
+  .info {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 12px 0;
+  }
+
+  /* keep response scrolling inside, but as a block */
+  .response-panel {
+    max-height: none;
+    overflow: visible;
+  }
+}
